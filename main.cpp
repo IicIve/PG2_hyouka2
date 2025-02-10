@@ -19,7 +19,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	Player* player = new Player;
 	Enemy* enemy = new Enemy;
-	Hit* hit = new Hit;
+	Hit hit =  Hit();
 
 	int scene = TITLE;
 
@@ -68,9 +68,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			enemy->Update();
 
 			if (enemy->isActive_) {
-				enemy->SetIsHit(hit->isHit(enemy->pos_, enemy->radius_, player->bullet->pos_, player->bullet->radius_));
-				player->SetIsHit(hit->isHit(enemy->pos_, enemy->radius_, player->pos_, player->radius_));
-
+				enemy->isHit_ = hit.isHit(enemy->pos_, enemy->radius_, player->bullet->pos_, player->bullet->radius_);
+				player->isHit_ = hit.isHit(enemy->pos_, enemy->radius_, player->pos_,player->radius_);
 			}
 
 			if (player->GetIsHit()) {
@@ -102,6 +101,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			break;
 		}
 	}
+
+	delete player;
+	delete enemy;
 
 	// ライブラリの終了
 	Novice::Finalize();

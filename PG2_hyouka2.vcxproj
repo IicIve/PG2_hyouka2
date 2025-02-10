@@ -88,7 +88,7 @@ xcopy C:\KamataEngine\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\KamataEngine\Adapter;C:\KamataEngine\External\KamataEngine\include;C:\KamataEngine\External\DirectXTex\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <Optimization>MinSpace</Optimization>
+      <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <TreatWarningAsError>true</TreatWarningAsError>
